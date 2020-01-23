@@ -1,0 +1,52 @@
+---
+title: "MIMH Data Cleaning"
+author: "Emma Highland"
+date: "January 22, 2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r libs}
+library(dplyr)
+```
+
+```{r healthcsv}
+m.h <- read.csv('mentalhealth.csv')
+```
+
+```{r mhdf}
+m.h.df <- as.data.frame(select(m.h,1:2,7))
+```
+
+```{r mhhead}
+head(m.h.df)
+```
+
+```{r mhtail}
+tail(m.h.df)
+```
+
+```{r illcsv}
+m.i <- read.csv('mentalillness.csv')
+```
+
+```{r midf}
+m.i.df <- as.data.frame(select(m.i,1:2,7))
+```
+
+```{r mihead}
+head(m.i.df)
+```
+
+```{r mitail}
+tail(m.i.df)
+```
+
+```{r writeout}
+write.csv(x = m.h.df,file = 'mentalhealth-clean.csv')
+write.csv(x = m.i.df, file = 'mentalillness-clean.csv')
+```
+
